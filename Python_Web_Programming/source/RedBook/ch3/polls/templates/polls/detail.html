@@ -1,12 +1,26 @@
+<!--
+    vote()에서 exception이 발생하면 error_message에 담아 페이지에 표시한다.
+    <form>은 POST 방식으로 보낸다. 여기서는 polls:vote로 보내는걸로 설정되어 있음
+    CSRF 공격에 방지를 위한 {% csrf_token %} 태그
+    Question 객체를 template에 넘겨주고 있다. 
+    question.choice_set.all은 Question 객체의 choice_set 속성에 들어있는 항목 모두를 뜻한다.
+    Radio 버튼을 선택하면 POST Data가 'choice'='3'(choice.id) 형태로 구성되도록 name과 value 속성을 정의한다.
+    forloop.counter 변수는 for loop를 실행한 횟수를 담고 있는 template 변수다.
+    Vote 버튼을 클릭하면 polls:vote URL로 전송된다. 전송된 데이터는 vote() view 함수에서 request.POST['choice'] 구문으로 접근한다.
+    <input> 태그의 name과 value 속성값들이, request.POST 사전에 key, value로 사용된다.
+
+    1대N 연결된 항목들이라는 의미로 xxx_set 속성을 default로 제공한다.
+-->
+
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
-{% csrf_token %}
-{% for choice in question.choice_set.all %}
+    {% csrf_token %}
+    {% for choice in question.choice_set.all %}
     <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
     <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br />
-{% endfor %}
-<input type="submit" value="Vote" />
+    {% endfor %}
+    <input type="submit" value="Vote" />
 </form>

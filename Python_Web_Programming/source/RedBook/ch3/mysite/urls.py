@@ -13,13 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
-
-    # shkim
-    path('polls/', include('polls.urls')),
+    path(
+        "", include("polls.urls")
+    ),  # 빈 경로에 대한 URL 패턴을 "polls" 앱의 URLconf로 연결
+    path("admin/", admin.site.urls),
+    path("polls/", include("polls.urls")),
 ]
