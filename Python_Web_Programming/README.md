@@ -2,3 +2,10 @@
 
 ![book_cover](book_cover.jpg)    
 예제코드 : https://www.hanbit.co.kr/support/supplement_survey.html?pcode=B4329597070
+
+## Install
+```
+conda create --name django python=3.9
+conda activate django
+pip install Django
+```
