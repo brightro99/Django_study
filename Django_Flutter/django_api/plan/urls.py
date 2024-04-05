@@ -21,6 +21,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register("plan", views.TodoView)  # plan에 있는 TodoView를 등록
+router.register("solution", views.SolutionView)  # plan에 있는 SolutionView를 등록
 
 urlpatterns = [
     path("", include(router.urls)),
