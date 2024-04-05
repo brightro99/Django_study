@@ -3,6 +3,7 @@
 https://youtube.com/playlist?list=PLsGh7Wc318kjAd93kqSw9O4xGuu4BZAHZ&si=X9DO2pJckUWQioDx
 
 ## Install
+### Django
 ```
 conda create --name django python=3.9
 conda activate django
@@ -11,6 +12,12 @@ pip install djangorestframework
 pip install markdown       # Markdown support for the browsable API.
 pip install django-filter  # Filtering support
 ```
+### Flutter
+```
+flutter pub add provider # https://pub.dev/packages/provider/install
+flutter pub add http # https://pub.dev/packages/http/install
+```
+`pubspec.yaml` 에 보면 `dependencies` 에 추가 되어 있는 것을 확인 할 수 있다.
 
 ## Start
 ```

@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-m7xq@3)4)w_^-8nrhp$dh0gvpv#h#@#$h$=k)9x72z@q9b1p%p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["10.0.2.2", "localhost"]  # mobile 쪽  # django 실행
+ALLOWED_HOSTS = ["172.16.104.99", "localhost"]  # mobile 쪽  # django 실행
 
 
 # Application definition
@@ -107,11 +107,13 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+# TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+# USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
