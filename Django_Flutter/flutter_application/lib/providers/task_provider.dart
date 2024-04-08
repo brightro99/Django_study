@@ -13,8 +13,8 @@ class PlanProvider extends ChangeNotifier {
       UnmodifiableListView(_solutions);
 
   fetchSolutions() async {
-    // var url = Uri.parse('http://localhost:8000/solution');
-    var url = Uri.parse('http://172.16.104.99:8000/solution');
+    var url = Uri.parse('http://localhost:8000/solution');
+    // var url = Uri.parse('http://172.16.104.99:8000/solution');
     final response = await http.get(url);
     if (response.statusCode == 200) {
       print("response 200");

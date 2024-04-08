@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",  # https://www.django-rest-framework.org/#installation
     "plan",  # add app
+    "corsheaders",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -125,3 +127,35 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# CORS Setting
+CORS_ORIGIN_ALLOW_ALL = True  # 모든 호스트 허용
+# or
+# CORS_ORIGIN_WHITELIST = (
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost:8080",
+#     "http://127.0.0.1:9000",
+# )
+CORS_ALLOW_METHODS = [
+    # "DELETE",
+    "GET",
+    # "OPTIONS",
+    # "PATCH",
+    "POST",
+    # "PUT",
+]
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+# Custom header
+# from corsheaders.defaults import default_headers
+# CORS_ALLOW_HEADERS = list(default_headers) + ["my-custom-header"]
